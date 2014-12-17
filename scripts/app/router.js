@@ -20,6 +20,7 @@ define([
     'use strict';
     return Backbone.Router.extend({
         initialize: function(app) {
+
             this.app = app;
         },
         routes: {

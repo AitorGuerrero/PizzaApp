@@ -31,22 +31,24 @@ define([
             }, this);
         },
         events: {
-            'click #add-ingredient': function(e) {
-                this.addIngredient($(this.$('input[name=ingredient]:checked')).val());
-                //_(this.getSelectedIngredients()).each(function(id) {
-                //    this.addIngredient(id);
-                //}, this);
-            },
             'submit form': function(e) {
                 e.preventDefault();
                 this.fillModelWithForm();
                 app.commands.execute('pizza:save', this.model);
+            },
+            'click label.ingredient': function(e) {
+                e.preventDefault();
+                this.addIngredient($(e.currentTarget).data('ingredient-id'));
+            },
+            'click #selected-ingredients a.destroy': function(e) {
+                e.preventDefault();
+                this.removeIngredient($(e.currentTarget).data('ingredient-id'));
             }
         },
         fillModelWithForm: function() {
             this.model.set('name', this.ui.inputName.val());
             var ingredients = [];
-            _(this.$('input[name|=ingredient]')).each(function(input) {
+            _(this.$('#selected-ingredients input[name|=ingredient]')).each(function(input) {
                 var i,
                     $input = $(input),
                     id =  $input.data('id');
@@ -55,13 +57,6 @@ define([
                 }
             });
             this.model.set('ingredients', ingredients);
-        },
-        getSelectedIngredients: function() {
-            var ids = [];
-            this.ui.selectableIngredients.filter(':checked').each(function() {
-                ids.push($(this).data('ingredient-id'));
-            });
-            return ids;
         },
         addIngredient: function(id) {
             var model = this.collection.get(id);
@@ -78,6 +73,10 @@ define([
                     name: ingredient.get('name')
                 }));
             }
+        },
+        removeIngredient: function(id) {
+            var model = this.collection.get(id);
+            this.collection.remove(model);
         },
         serializeData: function() {
             var data =  Marionette.CompositeView.prototype.serializeData.call(this);

@@ -10,26 +10,31 @@
     <label>Ingredients</label>
     <div class="row">
         <div class="small-6 columns">
-            <ul id="selectable-ingredients">
+            <ul id="selectable-ingredients" class="inline-list">
                 <% _.each(ingredients, function(ingredient) { %>
                     <li>
-                        <input
-                                id="ingredient-<%-ingredient._id%>"
-                                name="ingredient"
-                                value="<%-ingredient._id%>"
-                                type="radio" />
-                        <label for="ingredient-<%-ingredient._id%>"><%-ingredient.name%></label>
+                        <label
+                                for="ingredient-<%-ingredient._id%>"
+                                class="ingredient button"
+                                data-ingredient-id="<%-ingredient._id%>">
+                            <input
+                                    id="ingredient-<%-ingredient._id%>"
+                                    name="ingredient"
+                                    value="<%-ingredient._id%>"
+                                    type="radio" />
+                            <i class="fi-plus"></i>
+                            <%-ingredient.name%>
+                        </label>
                     </li>
                 <% }); %>
             </ul>
-            <div>
-                <input id="add-ingredient" type="button" value="add" class="button tiny">
-            </div>
         </div>
         <div class="columns small-6">
             <ul id="selected-ingredients" class="panel">
             </ul>
         </div>
     </div>
-    <input type="submit" value="save" class="button expand">
+    <div class="row">
+        <input type="submit" value="save" class="button expand">
+    </div>
 </form>

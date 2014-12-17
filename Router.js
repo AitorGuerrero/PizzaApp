@@ -33,16 +33,24 @@ define([
             }));
         },
         pizzaNew: function() {
-            var app = this.app;
+            var app = this.app,
+                pizza = new Pizza();
+            this.listenToOnce(pizza, 'sync', function() {
+                this.navigate('#', {trigger: true});
+            });
             app.mainRegion.show(new PizzaEditView({
-                model: new Pizza(),
+                model: pizza,
                 ingredientCollection: app.ingredients
             }));
         },
         pizzaEdit: function(id) {
-            var app = this.app;
+            var app = this.app,
+                pizza = app.pizzas.get(id);
+            this.listenToOnce(pizza, 'sync', function() {
+                this.navigate('#', {trigger: true});
+            });
             app.mainRegion.show(new PizzaEditView({
-                model: app.pizzas.get(id),
+                model: pizza,
                 ingredientCollection: app.ingredients
             }));
         }

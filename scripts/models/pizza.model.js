@@ -1,4 +1,4 @@
-define(['backbone', 'models/ingredient.collection'], function(Backbone, IngredientCollection) {
+define(['../../bower_components/backbone/backbone', 'models/ingredient.collection'], function(Backbone, IngredientCollection) {
     return Backbone.Model.extend({
         idAttribute: '_id',
         initialize: function() {

@@ -12,7 +12,7 @@ require.config({
         'foundation': '../bower_components/foundation/js/foundation',
         'fastclick': '../bower_components/fastclick/lib/fastclick',
         'modernizr': '../bower_components/modernizr/modernizr',
-        'text': 'config/require/plugins/text'
+        'text': '../vendors/requirejs/plugins/text'
     },
     shim: {
         'jquery': {

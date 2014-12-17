@@ -1,0 +1,8 @@
+ul {list-style: none; margin-left: 0;}
+ul.buttons-list a {margin-bottom: 0.1rem}
+.button.confirm {
+    background-color: #43AC6A
+}
+ul#pizza-list a.view-pizza {
+    padding-left: 1rem;
+}

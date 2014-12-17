@@ -1,5 +1,17 @@
-<h1>Pizzas App</h1>
-<ul id="pizza-list">
+<ul class="breadcrumbs">
+    <li class="current"><a href="#">Home</a></li>
 </ul>
 
-<a href="#pizza/new">New pizza</a>
+<h1>Pizzas App</h1>
+<ul id="pizza-list" class="buttons-list">
+</ul>
+
+<a href="#pizza/new" class="button"><i class="fi-plus"></i> New pizza</a>
+
+<div id="deleteModal" class="reveal-modal" data-reveal>
+    <p>Are you sure to delete this pizza?</p>
+    <ul class="button-group">
+        <li><a class="button confirm"><i class="fi-check"></i> yeah!</a></li>
+        <li><a class="button alert close"><i class="fi-x"></i> ummm... nope</a></li>
+    </ul>
+</div>

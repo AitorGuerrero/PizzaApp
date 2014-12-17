@@ -16,10 +16,9 @@ define([
         template: _.template(template),
         ui: {
             inputName: 'input[name=name]',
-            selectableIngredients: '#selectable-ingredients input',
-            selectedIngredients: '#selected-ingredients'
+            selectableIngredients: '#selectable-ingredients input'
         },
-        childViewContainer: '#selected-ingredients ul',
+        childViewContainer: '#selected-ingredients',
         childView: Marionette.ItemView.extend({
             tagName: 'li',
             template: _.template(selectedIngredientTemplate)
@@ -27,7 +26,6 @@ define([
         initialize: function(options) {
             this.ingredientCollection = options.ingredientCollection;
             this.collection = new Backbone.Collection();
-            console.log(this.model);
             _(this.model.get('ingredients')).each(function(id) {
                 this.addIngredient(id);
             }, this);
@@ -83,6 +81,7 @@ define([
         serializeData: function() {
             var data =  Marionette.CompositeView.prototype.serializeData.call(this);
             data.ingredients = this.ingredientCollection.toJSON();
+            data.title = this.model.isNew() ? 'New pizza' : 'Edit pizza ' + this.model.get('name');
             return data;
         }
     });

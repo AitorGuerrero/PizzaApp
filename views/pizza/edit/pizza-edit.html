@@ -1,24 +1,29 @@
-<a href="#">Home</a>
+<ul class="breadcrumbs">
+    <li><a href="#">Home</a></li>
+    <li class="current"><a href="#"><%- title %></a></li>
+</ul>
 <form action="http://162.250.78.47/api/pizzas" method="post">
     <div id="pizza-name">
         <label for="input-pizza-name">Pizza name</label>
         <input id="input-pizza-name" name="name" type="text" value="<%-name%>">
     </div>
-    <div id="selectable-ingredients">
+    <ul id="selectable-ingredients">
         <% _.each(ingredients, function(ingredient) { %>
-            <input
-                    id="ingredient-<%-ingredient._id%>"
-                    data-ingredient-id="<%-ingredient._id%>"
-                    type="checkbox" />
-            <label for="ingredient-<%-ingredient._id%>"><%-ingredient.name%></label>
+            <li>
+                <div>
+                    <input
+                            id="ingredient-<%-ingredient._id%>"
+                            data-ingredient-id="<%-ingredient._id%>"
+                            type="checkbox" />
+                    <label for="ingredient-<%-ingredient._id%>"><%-ingredient.name%></label>
+                </div>
+            </li>
         <% }); %>
-    </div>
+    </ul>
     <div>
-        <input id="add-ingredients" type="button" value="add">
+        <input id="add-ingredients" type="button" value="add" class="button tiny">
     </div>
-    <div id="selected-ingredients">
-        <ul>
-        </ul>
-    </div>
-    <input type="submit" value="save">
+    <ul id="selected-ingredients" class="panel">
+    </ul>
+    <input type="submit" value="save" class="button expand">
 </form>

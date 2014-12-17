@@ -1,16 +1,20 @@
 require([
     'jquery', 'marionette', 'backbone',
+    'foundation',
     'app',
     'Router',
     'commands',
     'models/ingredient.collection',
     'models/pizza.collection'
-], function($, Marionette, Backbone, app, Router, commands, Ingredients, Pizzas){
+], function($, Marionette, Backbone, foundation, app, Router, commands, Ingredients, Pizzas){
 
     'use strict';
 
     var ingredients = new Ingredients(),
         pizzas = new Pizzas();
+
+    $(document).foundation();
+
     app.addRegions({
         mainRegion: $('#app-content')
     });

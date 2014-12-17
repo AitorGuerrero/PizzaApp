@@ -2,7 +2,8 @@ define([
     'marionette',
     'app',
     'text!views/home/home.view.html',
-    'text!views/home/pizza.view.html'
+    'text!views/home/pizza.view.html',
+    'foundation'
 ], function(Marionette, app, template, childTemplate) {
     'use strict';
     return Marionette.CompositeView.extend({
@@ -12,12 +13,29 @@ define([
             tagName: 'li',
             template: _.template(childTemplate)
         }),
+        onRender: function() {
+            this.initDeleteModal();
+        },
+        onShow: function() {
+            $(document).foundation();
+        },
         events: {
             'click a.delete': function(e) {
-                e.preventDefault();
-                var id = $(e.currentTarget).data('id');
-                app.commands.execute('pizza:destroy', this.collection.get(id));
+                $('#deleteModal')
+                    .data('pizza-id', $(e.currentTarget).data('id'))
+                    .foundation('reveal', 'open');
             }
+        },
+        initDeleteModal: function() {
+            var view = this;
+            $(this.$('#deleteModal a.close')).on('click', function() {
+                $('#deleteModal').foundation('reveal', 'close');
+            });
+            $(this.$('#deleteModal a.confirm')).on('click', function(e) {
+                var $modal = $('#deleteModal'), id = $modal.data('pizza-id');
+                app.commands.execute('pizza:destroy', view.collection.get(id));
+                $modal.foundation('reveal', 'close');
+            });
         }
     });
 });

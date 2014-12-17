@@ -1,0 +1,24 @@
+<a href="#">Home</a>
+<form action="http://162.250.78.47/api/pizzas" method="post">
+    <div id="pizza-name">
+        <label for="input-pizza-name">Pizza name</label>
+        <input id="input-pizza-name" name="name" type="text" value="<%-name%>">
+    </div>
+    <div id="selectable-ingredients">
+        <% _.each(ingredients, function(ingredient) { %>
+            <input
+                    id="ingredient-<%-ingredient._id%>"
+                    data-ingredient-id="<%-ingredient._id%>"
+                    type="checkbox" />
+            <label for="ingredient-<%-ingredient._id%>"><%-ingredient.name%></label>
+        <% }); %>
+    </div>
+    <div>
+        <input id="add-ingredients" type="button" value="add">
+    </div>
+    <div id="selected-ingredients">
+        <ul>
+        </ul>
+    </div>
+    <input type="submit" value="save">
+</form>

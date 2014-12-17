@@ -2,7 +2,9 @@ define(['backbone', 'models/ingredient.collection'], function(Backbone, Ingredie
     return Backbone.Model.extend({
         idAttribute: '_id',
         initialize: function() {
-            this.set('ingredients', []);
+            if(this.get('ingredients') === undefined) {
+                this.set('ingredients', []);
+            }
         }
     });
 });

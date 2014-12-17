@@ -41,7 +41,6 @@ define([
         },
         pizzaEdit: function(id) {
             var app = this.app;
-            console.log('edit', id);
             app.mainRegion.show(new PizzaEditView({
                 model: app.pizzas.get(id),
                 ingredientCollection: app.ingredients

@@ -28,6 +28,9 @@ define([
             this.ingredientCollection = options.ingredientCollection;
             this.collection = new Backbone.Collection();
             console.log(this.model);
+            _(this.model.get('ingredients')).each(function(id) {
+                this.addIngredient(id);
+            }, this);
         },
         events: {
             'click #add-ingredients': function(e) {
@@ -65,7 +68,9 @@ define([
             var model = this.collection.get(id);
             if(model) {
                 model.set('amount', model.get('amount') + 1);
-                this.children.findByModel(model).render();
+                if(this.isRendered) {
+                    this.children.findByModel(model).render();
+                }
             } else {
                 var ingredient = this.ingredientCollection.get(id);
                 this.collection.add(new Backbone.Model({

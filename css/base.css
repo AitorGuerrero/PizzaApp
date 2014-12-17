@@ -1,8 +1,15 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster|Raleway);
+
+body ,h1, h2, h3, h4, h5, h6{
+    font-family: 'Raleway', sans-serif;
+}
+
 header {
     background: #555;
     color: #fff;
     margin-bottom: 1em;
     padding: 0.2em 0;
+    font-family: 'Lobster', cursive;
 }
 
 ul {list-style: none; margin-left: 0;}

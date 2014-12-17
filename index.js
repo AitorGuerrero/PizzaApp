@@ -2,10 +2,9 @@ require([
     'jquery', 'marionette', 'backbone',
     'foundation',
     'app',
-    'commands',
     'models/ingredient.collection',
     'models/pizza.collection'
-], function($, Marionette, Backbone, foundation, app, commands, Ingredients, Pizzas){
+], function($, Marionette, Backbone, foundation, app, Ingredients, Pizzas){
 
     'use strict';
 

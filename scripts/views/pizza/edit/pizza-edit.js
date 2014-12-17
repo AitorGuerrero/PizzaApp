@@ -1,13 +1,11 @@
 define([
     'underscore',
     'marionette',
-    'app',
     'text!views/pizza/edit/pizza-edit.html',
     'text!views/pizza/edit/selected-ingredient.html'
 ], function(
     _,
     Marionette,
-    app,
     template,
     selectedIngredientTemplate
     ) {

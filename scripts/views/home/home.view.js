@@ -1,10 +1,9 @@
 define([
     'marionette',
-    'app',
     'text!views/home/home.view.html',
     'text!views/home/pizza.view.html',
     'foundation'
-], function(Marionette, app, template, childTemplate) {
+], function(Marionette, template, childTemplate) {
     'use strict';
     return Marionette.CompositeView.extend({
         template: _.template(template),
@@ -31,7 +30,7 @@ define([
             $(this.$('#deleteModal a.close')).on('click', function() {
                 $('#deleteModal').foundation('reveal', 'close');
             });
-            $(this.$('#deleteModal a.confirm')).on('click', function(e) {
+            $(this.$('#deleteModal a.confirm')).on('click', function() {
                 var $modal = $('#deleteModal'), id = $modal.data('pizza-id');
                 app.commands.execute('pizza:destroy', view.collection.get(id));
                 $modal.foundation('reveal', 'close');

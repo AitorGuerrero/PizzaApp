@@ -1,5 +1,5 @@
 <ul class="breadcrumbs">
-    <li><a href="#">Home</a></li>
+    <li><a href="#"><i class="fi-home"></i> Home</a></li>
     <li class="current"><a href="#"><%- title %></a></li>
 </ul>
 <form action="http://162.250.78.47/api/pizzas" method="post">
@@ -7,24 +7,29 @@
         <label for="input-pizza-name">Pizza name</label>
         <input id="input-pizza-name" name="name" type="text" value="<%-name%>">
     </div>
-    <ul id="selectable-ingredients">
-        <% _.each(ingredients, function(ingredient) { %>
-            <li>
-                <div>
-                    <input
-                            id="ingredient-<%-ingredient._id%>"
-                            name="ingredient"
-                            value="<%-ingredient._id%>"
-                            type="radio" />
-                    <label for="ingredient-<%-ingredient._id%>"><%-ingredient.name%></label>
-                </div>
-            </li>
-        <% }); %>
-    </ul>
-    <div>
-        <input id="add-ingredient" type="button" value="add" class="button tiny">
+    <label>Ingredients</label>
+    <div class="row">
+        <div class="small-6 columns">
+            <ul id="selectable-ingredients">
+                <% _.each(ingredients, function(ingredient) { %>
+                    <li>
+                        <input
+                                id="ingredient-<%-ingredient._id%>"
+                                name="ingredient"
+                                value="<%-ingredient._id%>"
+                                type="radio" />
+                        <label for="ingredient-<%-ingredient._id%>"><%-ingredient.name%></label>
+                    </li>
+                <% }); %>
+            </ul>
+            <div>
+                <input id="add-ingredient" type="button" value="add" class="button tiny">
+            </div>
+        </div>
+        <div class="columns small-6">
+            <ul id="selected-ingredients" class="panel">
+            </ul>
+        </div>
     </div>
-    <ul id="selected-ingredients" class="panel">
-    </ul>
     <input type="submit" value="save" class="button expand">
 </form>

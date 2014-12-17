@@ -31,10 +31,11 @@ define([
             }, this);
         },
         events: {
-            'click #add-ingredients': function(e) {
-                _(this.getSelectedIngredients()).each(function(id) {
-                    this.addIngredient(id);
-                }, this);
+            'click #add-ingredient': function(e) {
+                this.addIngredient($(this.$('input[name=ingredient]:checked')).val());
+                //_(this.getSelectedIngredients()).each(function(id) {
+                //    this.addIngredient(id);
+                //}, this);
             },
             'submit form': function(e) {
                 e.preventDefault();

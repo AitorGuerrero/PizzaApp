@@ -13,15 +13,16 @@
                 <div>
                     <input
                             id="ingredient-<%-ingredient._id%>"
-                            data-ingredient-id="<%-ingredient._id%>"
-                            type="checkbox" />
+                            name="ingredient"
+                            value="<%-ingredient._id%>"
+                            type="radio" />
                     <label for="ingredient-<%-ingredient._id%>"><%-ingredient.name%></label>
                 </div>
             </li>
         <% }); %>
     </ul>
     <div>
-        <input id="add-ingredients" type="button" value="add" class="button tiny">
+        <input id="add-ingredient" type="button" value="add" class="button tiny">
     </div>
     <ul id="selected-ingredients" class="panel">
     </ul>

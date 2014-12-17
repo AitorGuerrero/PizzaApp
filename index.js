@@ -2,11 +2,10 @@ require([
     'jquery', 'marionette', 'backbone',
     'foundation',
     'app',
-    'Router',
     'commands',
     'models/ingredient.collection',
     'models/pizza.collection'
-], function($, Marionette, Backbone, foundation, app, Router, commands, Ingredients, Pizzas){
+], function($, Marionette, Backbone, foundation, app, commands, Ingredients, Pizzas){
 
     'use strict';
 
@@ -18,7 +17,6 @@ require([
     app.addRegions({
         mainRegion: $('#app-content')
     });
-    app.router = new Router(app);
     app.on('start', function() {
         Backbone.history.start();
     });

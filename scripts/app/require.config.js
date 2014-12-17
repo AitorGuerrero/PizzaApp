@@ -2,6 +2,9 @@ require.config({
     baseUrl: 'scripts',
     deps: ['index.js'],
     paths: {
+        'app': 'app/app',
+        'commands': 'app/commands',
+        'router': 'app/router',
         'jquery': '../bower_components/jquery/dist/jquery',
         'underscore': '../bower_components/underscore/underscore',
         'backbone': '../bower_components/backbone/backbone',

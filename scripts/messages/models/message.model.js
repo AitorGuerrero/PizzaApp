@@ -1,4 +1,4 @@
-define(['backbone'], function(Backbone) {
+define(['../../../bower_components/backbone/backbone'], function(Backbone) {
     var types = {
         TYPE_ERROR: 'error',
         TYPE_NOTICE: 'notice',

@@ -40,7 +40,6 @@ define([
             openEditPizzaPage: function(pizza) {
                 this.listenToOnce(pizza, 'sync', function() {
                     this.navigate('#', {trigger: true});
-                    app.commands.execute('message:succeed', 'The pizza has been saved!');
                 });
                 app.mainRegion.show(new PizzaEditView({
                     model: pizza,

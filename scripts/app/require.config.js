@@ -4,7 +4,6 @@ require.config({
     paths: {
         'commands': 'app/initializers/commands.initializer',
         'router': 'app/initializers/router.initializer',
-        'messages': 'app/initializers/messages.initializer',
         'jquery': '../bower_components/jquery/dist/jquery',
         'underscore': '../bower_components/underscore/underscore',
         'backbone': '../bower_components/backbone/backbone',

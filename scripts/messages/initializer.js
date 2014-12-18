@@ -1,8 +1,8 @@
 define([
     'jquery',
     'backbone',
-    'models/message.model',
-    'views/message/message.view'
+    './models/message.model',
+    './views/message.view'
 ], function($, Backbone, Message, MessageView){
     function showMessage(message, type, $el) {
         var view = new MessageView({

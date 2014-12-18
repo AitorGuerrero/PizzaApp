@@ -2,7 +2,7 @@ define([
     'marionette',
     'app/initializers/router.initializer',
     'app/initializers/commands.initializer',
-    'app/initializers/messages.initializer'
+    'messages/initializer'
 ], function(Marionette, routerInitializer, commandsInitializer, messages) {
     'use strict';
     window.app = new Marionette.Application();

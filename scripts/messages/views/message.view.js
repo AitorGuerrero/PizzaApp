@@ -1,9 +1,9 @@
 define([
     'marionette',
-    'models/message.model',
-    'text!views/message/message.underscore.html',
-    'text!views/message/message.error.underscore.html',
-    'text!views/message/message.succeed.underscore.html'
+    'messages/models/message.model',
+    'text!messages/views/message.underscore.html',
+    'text!messages/views/message.error.underscore.html',
+    'text!messages/views/message.succeed.underscore.html'
 ], function(Marionette, Message, template, templateError, templateSucceed) {
 
     var templates = {};

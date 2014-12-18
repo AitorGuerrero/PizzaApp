@@ -32,7 +32,13 @@ define([
             });
             $(this.$('#deleteModal a.confirm')).on('click', function() {
                 var $modal = $('#deleteModal'), id = $modal.data('pizza-id');
-                app.commands.execute('pizza:destroy', view.collection.get(id));
+                app.commands.execute('pizza:destroy', view.collection.get(id), function(err) {
+                    if(!err) {
+                        app.commands.execute('message', 'The pizza have been destroyed!');
+                    } else {
+                        app.commands.execute('message:error', err);
+                    }
+                });
                 $modal.foundation('reveal', 'close');
             });
         }

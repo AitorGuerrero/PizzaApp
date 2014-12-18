@@ -43,6 +43,7 @@ define([
             var app = this.app;
             this.listenToOnce(pizza, 'sync', function() {
                 this.navigate('#', {trigger: true});
+                app.commands.execute('message', 'The pizza have been saved!');
             });
             app.mainRegion.show(new PizzaEditView({
                 model: pizza,

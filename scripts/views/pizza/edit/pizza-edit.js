@@ -32,7 +32,13 @@ define([
             'submit form': function(e) {
                 e.preventDefault();
                 this.fillModelWithForm();
-                app.commands.execute('pizza:save', this.model);
+                app.commands.execute('pizza:save', this.model, function(err) {
+                    if(err) {
+                        app.commands.execute('message:error', err);
+                    } else {
+                        app.commands.execute('message:succeed', 'The pizza have been saved!');
+                    }
+                });
             },
             'click label.ingredient': function(e) {
                 e.preventDefault();

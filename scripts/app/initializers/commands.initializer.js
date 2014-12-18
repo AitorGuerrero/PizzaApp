@@ -1,7 +1,8 @@
 define([], function() {
     'use strict';
-    return function(app) {
-        app.commands.setHandler('pizza:save', function(pizza, cb) {
+    return function() {
+        var app = this;
+        this.commands.setHandler('pizza:save', function(pizza, cb) {
             cb = cb || function() {};
             app.pizzas.create(pizza, {
                 success: function() {
@@ -12,7 +13,7 @@ define([], function() {
                 }
             });
         });
-        app.commands.setHandler('pizza:destroy', function(pizza, cb) {
+        this.commands.setHandler('pizza:destroy', function(pizza, cb) {
             cb = cb || function() {};
             pizza.destroy({
                 success: function() {

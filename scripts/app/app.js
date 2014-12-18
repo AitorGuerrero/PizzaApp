@@ -1,11 +1,13 @@
 define([
     'marionette',
     'router',
-    'commands'
-], function(Marionette, Router, commands) {
+    'commands',
+    'messages'
+], function(Marionette, routerInitializer, commandsInitializer, messages) {
     'use strict';
     window.app = new Marionette.Application();
-    app.router = new Router(app);
-    commands(app);
+    app.addInitializer(routerInitializer);
+    app.addInitializer(commandsInitializer);
+    app.addInitializer(messages);
     return app;
 });

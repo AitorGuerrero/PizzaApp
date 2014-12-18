@@ -22,6 +22,8 @@ require([
     $.when(ingredients.fetch(), pizzas.fetch()).done(function() {
         app.ingredients = ingredients;
         app.pizzas = pizzas;
-        app.start();
+        app.start({
+            messagesContainer: '#messages'
+        });
     });
 });

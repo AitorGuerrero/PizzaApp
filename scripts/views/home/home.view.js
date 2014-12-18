@@ -13,13 +13,13 @@ define([
             template: _.template(childTemplate)
         }),
         onShow: function() {
-            $(document).foundation();
+            this.$el.foundation();
             this.initDeleteModal();
         },
         events: {
             'click a.delete': function(e) {
+                this.idToDestroy = $(e.currentTarget).data('id');
                 $('#deleteModal')
-                    .data('pizza-id', $(e.currentTarget).data('id'))
                     .foundation('reveal', 'open');
             }
         },
@@ -29,12 +29,13 @@ define([
                 $('#deleteModal').foundation('reveal', 'close');
             });
             $(this.$('#deleteModal a.confirm')).on('click', function() {
-                var $modal = $('#deleteModal'), id = $modal.data('pizza-id');
-                app.commands.execute('pizza:destroy', view.collection.get(id), function(err) {
+                var $modal = $('#deleteModal');
+                app.commands.execute('pizza:destroy', view.collection.get(view.idToDestroy), function(err) {
                     if(!err) {
                         app.commands.execute('message:succeed', 'The pizza have been destroyed!');
                     } else {
                         app.commands.execute('message:error', err);
+                        view.idToDestroy = null;
                     }
                 });
                 $modal.foundation('reveal', 'close');

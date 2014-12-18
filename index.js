@@ -1,7 +1,7 @@
 require([
     'jquery', 'marionette', 'backbone',
     'foundation',
-    'app',
+    'app/app',
     'models/ingredient.collection',
     'models/pizza.collection'
 ], function($, Marionette, Backbone, foundation, app, Ingredients, Pizzas){

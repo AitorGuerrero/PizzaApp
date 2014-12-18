@@ -2,7 +2,6 @@ require.config({
     baseUrl: 'scripts',
     deps: ['index.js'],
     paths: {
-        'app': 'app/app',
         'commands': 'app/initializers/commands.initializer',
         'router': 'app/initializers/router.initializer',
         'messages': 'app/initializers/messages.initializer',

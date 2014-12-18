@@ -12,11 +12,9 @@ define([
             tagName: 'li',
             template: _.template(childTemplate)
         }),
-        onRender: function() {
-            this.initDeleteModal();
-        },
         onShow: function() {
             $(document).foundation();
+            this.initDeleteModal();
         },
         events: {
             'click a.delete': function(e) {
@@ -34,7 +32,7 @@ define([
                 var $modal = $('#deleteModal'), id = $modal.data('pizza-id');
                 app.commands.execute('pizza:destroy', view.collection.get(id), function(err) {
                     if(!err) {
-                        app.commands.execute('message', 'The pizza have been destroyed!');
+                        app.commands.execute('message:succeed', 'The pizza have been destroyed!');
                     } else {
                         app.commands.execute('message:error', err);
                     }

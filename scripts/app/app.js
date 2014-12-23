@@ -6,8 +6,10 @@ define([
 ], function(Marionette, routerInitializer, commandsInitializer, messages) {
     'use strict';
     window.app = new Marionette.Application();
-    app.addInitializer(routerInitializer);
-    app.addInitializer(commandsInitializer);
+    app.addInitializer(function(options) {
+        commandsInitializer.call(this, options);
+        routerInitializer.call(this, options);
+    });
     app.addInitializer(messages);
     return app;
 });

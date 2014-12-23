@@ -1,4 +1,4 @@
-define(['../../bower_components/backbone/backbone', 'models/pizza.model'], function(Backbone, Pizza){
+define(['backbone', 'models/pizza.model'], function(Backbone, Pizza){
     return Backbone.Collection.extend({
         model: Pizza,
         comparator: 'name',
